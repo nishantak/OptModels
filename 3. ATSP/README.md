@@ -138,7 +138,7 @@ Given a complete, directed graph $G = (V, E)$ with $|V|=n$ and arc (edge) cost $
 
 Meaning, to form a tour, without subtours, that has the minimum cost.
 
-## ASTP as MILP
+## ATSP as MILP
 
 ### DFJ Formulation
 $$
