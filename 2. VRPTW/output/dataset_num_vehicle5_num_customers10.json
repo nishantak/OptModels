@@ -1,0 +1,120 @@
+{
+  "Vehicle_Capacity": 6,
+  "Number_of_Vehicles": 5,
+  "Depot_Coordinates": {
+    "Latitude": 40.943,
+    "Longitude": -75.501
+  },
+  "Customers": [
+    {
+      "Customer_ID": 1,
+      "Coordinates": {
+        "X": -75.53668928386355,
+        "Y": 41.02746402375167
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 11,
+      "Time_Window_End": 13,
+      "Service_Time": 0.25
+    },
+    {
+      "Customer_ID": 2,
+      "Coordinates": {
+        "X": -75.59584755071494,
+        "Y": 40.84204247720473
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 15,
+      "Time_Window_End": 17,
+      "Service_Time": 0.25
+    },
+    {
+      "Customer_ID": 3,
+      "Coordinates": {
+        "X": -75.43827014136868,
+        "Y": 40.974860634897595
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 10,
+      "Time_Window_End": 12,
+      "Service_Time": 0.25
+    },
+    {
+      "Customer_ID": 4,
+      "Coordinates": {
+        "X": -75.53533616574768,
+        "Y": 40.96628464733083
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 12,
+      "Time_Window_End": 15,
+      "Service_Time": 0.25
+    },
+    {
+      "Customer_ID": 5,
+      "Coordinates": {
+        "X": -75.64400024631301,
+        "Y": 40.9136534628718
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 12,
+      "Time_Window_End": 15,
+      "Service_Time": 0.25
+    },
+    {
+      "Customer_ID": 6,
+      "Coordinates": {
+        "X": -75.50615484023872,
+        "Y": 40.963421034397186
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 15,
+      "Time_Window_End": 15,
+      "Service_Time": 0.25
+    },
+    {
+      "Customer_ID": 7,
+      "Coordinates": {
+        "X": -75.33140888533562,
+        "Y": 40.97387128563794
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 14,
+      "Time_Window_End": 16,
+      "Service_Time": 0.25
+    },
+    {
+      "Customer_ID": 8,
+      "Coordinates": {
+        "X": -75.42650875356921,
+        "Y": 40.96808451258767
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 14,
+      "Time_Window_End": 14,
+      "Service_Time": 0.25
+    },
+    {
+      "Customer_ID": 9,
+      "Coordinates": {
+        "X": -75.51731194205438,
+        "Y": 40.864029822918134
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 15,
+      "Time_Window_End": 17,
+      "Service_Time": 0.25
+    },
+    {
+      "Customer_ID": 10,
+      "Coordinates": {
+        "X": -75.37962937688127,
+        "Y": 40.91853832688477
+      },
+      "Demand_units": 1,
+      "Time_Window_Start": 14,
+      "Time_Window_End": 16,
+      "Service_Time": 0.25
+    }
+  ]
+}

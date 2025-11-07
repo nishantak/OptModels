@@ -92,7 +92,7 @@ Standard QUBO is a minimisation problem. So,
 
 **Goal:** 
 $$
-\min_x{(-Cut(x))}
+\min_{x}{(-Cut(x))}
 $$
 
 ### QUBO matrix Q
@@ -202,7 +202,7 @@ t_i = \sum_{j} w_{ij} s_j
 $$
 so that
 $$
-\Delta_i = s_i t_i.
+\Delta_i = s_i t_i
 $$
 
 Thus, selecting a move is reduced to picking the $i$ with largest positive $\Delta_i$.
