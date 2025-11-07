@@ -67,9 +67,11 @@ $$
 
 #### 3. Customer Visit Constraints
 Each customer must be visited exactly once (incoming and outgoing):
+
 $$
 \sum_{\substack{i=0\\i \neq k}}^{I} x_{ik} = 1 \quad \forall k \in \{1,\ldots,I\}
 $$
+
 $$
 \sum_{\substack{k=0\\k \neq j}}^{I} x_{kj} = 1 \quad \forall j \in \{1,\ldots,I\}
 $$
