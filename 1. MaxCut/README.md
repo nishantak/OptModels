@@ -78,6 +78,7 @@ Cut(z) = Cut(x) = \frac{1}{2} \sum_{\{i,k\} \in E}{w_{ik}(1 - (4x_ix_k - 2x_i - 
 $$
 
 ## Goal:
+
 $$
 \max{(Cut(x))}.
 $$
@@ -91,8 +92,9 @@ $$
 Standard QUBO is a minimisation problem. So, 
 
 **Goal:** 
+
 $$
-\min_{x}{(-Cut(x))}
+\min_{(-Cut(x))}
 $$
 
 ### QUBO matrix Q
@@ -112,6 +114,7 @@ $$
 Then,
 
 Linear Terms (diagonal elemnts $ik$):
+
 $$
 -\sum_{\{i,k\}\in E} w_{ik}x_i -\sum_{\{i,k\}\in E} \quad = \quad - \sum_{k:\{i,k\}\in E}{w_{ik}x_i} = \sum_i{Q_{ii}x_i^2} \quad (x^2 = x \text{ in binary})
 $$
@@ -123,8 +126,9 @@ $$
 Quadratic Terms:
 
 $$
-2\sum_{\{i,k\}\in E} w_{ik}x_ix_k = 2\sum_{i<k}{Q_{ik}x_ix_k} \\
+2\sum_{\{i,k\}\in E} w_{ik}x_ix_k = 2\sum_{i<k}Q_{ik}x_ix_k \\
 $$
+
 $$
 Q_{ik} = 
 \begin{cases}
@@ -162,12 +166,15 @@ Return best_s, best_cut
 ### Spin encoding
 
 We represent each vertex (i) by a spin variable
+
 $$
 s_i \in \{-1, +1\}
 $$
+
 which determines to which side of the cut the vertex belongs.
 
 For an undirected weighted graph $G((V,E,w))$, Max-Cut is
+
 $$
 Cut(s)= \frac12 \sum_{{i,j}\in E} w_{ij}(1 - s_i s_j)
 $$
@@ -176,14 +183,19 @@ If $s_i \ne s_j$, the edge contributes $w_{ij}$.
 If $s_i = s_j$, the edge contributes $0$.
 
 The additive constant
+
 $$
 \frac12\sum_{{i,j}} w_{ij}
 $$
+
 is fixed, so maximizing the cut is equivalent to maximizing
+
 $$
 -\frac12\sum_{{i,j}} w_{ij} s_i s_j
 $$
+
 or minimizing the Ising energy
+
 $$
 H(s) = -\sum_{{i,j}} w_{ij} s_i s_j .
 $$
@@ -192,6 +204,7 @@ $$
 
 If we flip a single vertex $i$: $s_i \gets -s_i$,
 the change in cut value is
+
 $$
 \Delta_i = \sum_{j:{i,j}\in E} w_{ij} s_is_j 
 $$
@@ -200,7 +213,9 @@ The solver precomputes
 $$
 t_i = \sum_{j} w_{ij} s_j
 $$
+
 so that
+
 $$
 \Delta_i = s_i t_i
 $$
@@ -210,16 +225,17 @@ Thus, selecting a move is reduced to picking the $i$ with largest positive $\Del
 To keep this fast, whenever a spin is flipped, $t_j$ is updated incrementally only for neighbors of $i$. This avoids recomputing the objective from scratch at every step.
 
 We store
+
 $$
 g_i = s_i t_i = \Delta_i
 $$
+
 so the priority structure can directly rank candidate moves.
 
 ### Tabu search 
-Local search can cycle: the best next move might simply undo the previous flip.A **tabu list** prevents immediate return.
+Local search can cycle: the best next move might simply undo the previous flip. A **tabu list** prevents immediate return.
 
-Each vertex $i$ has a time until which it is forbidden to flip again.
-This *tabu tenure* is randomized in the range $[t_{\min}, t_{\max})$.
+Each vertex $i$ has a time until which it is forbidden to flip again. This *tabu tenure* is randomized in the range $[t_{\min}, t_{\max})$.
 
 If a vertex is tabu but flipping it produces a strictly better solution than the global best so far, the tabu restriction is **overridden** (aspiration rule).
 
@@ -239,13 +255,17 @@ When vertex (i) is flipped:
 2. Current cut value is incremented by $g_i$.
 3. $i$ receives a new tabu expiry.
 4. For each neighbor $j$,
+
    $$
    t_j \gets t_j + 2w_{ij}s_i
    $$
-   so
+
+   so,
+
    $$
    g_j = s_j t_j
    $$
+   
    is updated.
 5. Finally, $g_i \gets -g_i$, because flipping the sign reverses $s_i$ but leaves $t_i$ consistent.
 

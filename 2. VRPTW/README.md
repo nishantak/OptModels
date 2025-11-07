@@ -175,7 +175,7 @@ The `DataGenerator` class generates synthetic VRPTW instances:
 
 **Time Windows:**
 - Start time $e_i$: Randomly chosen from $[T_{\text{start}}, T_{\text{end}} - 1]$
-- Window duration: Randomly chosen from $[0, \text{max\_time\_window\_length}]$
+- Window duration: Randomly chosen from $[0, \text{max windoow length}]$
 - End time: $l_i = \min(e_i + \text{duration}, T_{\text{end}})$
 
 **Travel Time:**
